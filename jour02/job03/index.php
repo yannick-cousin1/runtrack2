@@ -4,17 +4,17 @@ for ($i=0;$i<=100;$i++)
 {
 	if ($i > 0 && $i < 20)
 	{
-		echo nl2br("<i>" . $i . "</i>\n");
+		echo ("<i>" . $i . "</i><br/>");
 	}
 	else if ($i > 25 && $i < 50)
 	{
 		if ($i == 42)
 		{
-			echo nl2br("La Plateforme_\n");
+			echo ("La Plateforme_<br/>");
 		}
 		else
 		{
-			echo nl2br("<u>" . $i . "</u>\n");
+			echo ("<u>" . $i . "</u><br/>");
 		}
 	}
 	else
