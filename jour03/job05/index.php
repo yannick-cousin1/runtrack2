@@ -37,7 +37,7 @@ function countVowelAndConsonant ($string)
 
       while (isset($string[$i]))
       {
-            if (!isVowel($string[$i]) && $string[$i] != " " && $string[$i] != "'")
+            if (!isVowel($string[$i]) && $string[$i] != " " && $string[$i] != "'" && $string[$i] != ",")
             {
                   $dico['consonnes']++;
             }
