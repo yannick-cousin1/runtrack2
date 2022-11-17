@@ -13,13 +13,14 @@
 </html>
 
 <?php
-$i = 0;
-foreach ($_GET as $key => $value) {
-      if ($value != "")
-      {
-            $i++;
-      }
+
+echo "<table border='1'><tr><th>Argument</th><th>Valeur</th></tr>";
+
+foreach ($_GET as $key => $value)
+{
+      echo ("<tr><td>" . $key . "</td><td>" . $value . "</td></tr>");
 }
-echo "Le nombre d'argument GET envoyé est : " . $i;
+
+echo "</table>";
 
 ?>

@@ -1,6 +1,6 @@
 <html>
 <body>
-<form action="" method="get" class="formulaire">
+<form action="" method="post" class="formulaire">
       <label for="nom">Nom : </label>
       <input type="text" name="nom" id="nom">
 
@@ -14,12 +14,12 @@
 
 <?php
 $i = 0;
-foreach ($_GET as $key => $value) {
+foreach ($_POST as $key => $value) {
       if ($value != "")
       {
             $i++;
       }
 }
-echo "Le nombre d'argument GET envoyé est : " . $i;
+echo "Le nombre d'argument POST envoyé est : " . $i;
 
 ?>
