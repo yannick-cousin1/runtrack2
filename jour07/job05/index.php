@@ -16,5 +16,6 @@ function occurences($str, $char)
 }
 
 echo occurences('Bonjour','o');
+echo phpinfo();
 
 ?>
