@@ -20,7 +20,7 @@ if (isset($_COOKIE['prenom']))
 {
       echo "Bonjour " . $_COOKIE['prenom'] . "<br>";
       echo ("<form action='' method='POST' class='formulaire'>
-      <input name='deco' type='submit' value='Deconnexion'>
+      <input name='deco' type='submit' value='Deco'>
       </form>");
 }
 else
