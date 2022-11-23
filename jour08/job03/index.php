@@ -2,15 +2,16 @@
 
 if (isset($_POST['reset']))
 {
-      $_SESSION['prenom'] = "";
+      session_destroy();
       header('Location: .');
-      echo $_SESSION['prenom'];
 }
 
 if (isset($_POST['prenom']))
 {
-      $_SESSION['prenom'] =  $_SESSION['prenom'] . "<br>" . $_POST['prenom'];
+      $_SESSION['prenom'] =  $_SESSION['prenom'] . "<br><li>" . $_POST['prenom'] . "</li>";
+      echo "<ul>";
       echo $_SESSION['prenom'];
+      echo "</ul>";
 }
 ?>
 
