@@ -6,13 +6,7 @@ if (isset($_POST['reset']))
       header('Location: .');
 }
 
-if (isset($_POST['prenom']))
-{
-      $_SESSION['prenom'] =  $_SESSION['prenom'] . "<br><li>" . $_POST['prenom'] . "</li>";
-      echo "<ul>";
-      echo $_SESSION['prenom'];
-      echo "</ul>";
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -25,5 +19,14 @@ if (isset($_POST['prenom']))
       <input name="send" type="submit" value="Envoyer">
       <input name="reset" type="submit" value="Reset">
 </form>
+<?php
+if (isset($_POST['prenom']))
+{
+      $_SESSION['prenom'] =  $_SESSION['prenom'] . "<br><li>" . $_POST['prenom'] . "</li>";
+      echo "<ul>";
+      echo $_SESSION['prenom'];
+      echo "</ul>";
+}
+?>
 </body>
 </html>
