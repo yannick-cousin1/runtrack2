@@ -10,86 +10,43 @@
 
 <body>
       <?php
-            $_SESSION['player'] = 1;
+            $_SESSION['turn'] = 0;
+            $_SESSION['l1'] = ['-','-','-'];
+            $_SESSION['l2'] = ['-','-','-'];
+            $_SESSION['l3'] = ['-','-','-'];
+            $_SESSION['game'] = [$_SESSION['l1'],$_SESSION['l2'],$_SESSION['l3']];
 
+            for($k=0; $k<3; $k++)
+            {
+                  for($l=0; $l<3; $l++)
+                  {
+                        echo ("l" .$k . "c" .$l . " ");
 
+                              if ($_GET['button'] == ("l".$k."c".$l) && $_SESSION['turn'] % 2 == 0)
+                              {
+                                    $_SESSION['game'][$k][$l] = 'X';
+                                    $_SESSION['turn'] += 1;
+                              }
+                              if ($_GET['button'] == ("l".$k."c".$l) && $_SESSION['turn'] % 2 == 1)
+                              {
+                                    $_SESSION['game'][$k][$l] = 'O';
+                                    $_SESSION['turn'] += 1;
+                              }
+
+                  }
+            }
 
             echo "<table><tbody>";
-            for($i=1; $i<=3; $i++)
+            for($i=0; $i<3; $i++)
             {
                   echo "<tr>";
-                  for($j=1; $j<=3; $j++)
+                  for($j=0; $j<3; $j++)
                   {
-                        if (isset($_GET['line1col1']) && $_SESSION['player'] == 1 && $i == 1 && $j == 1) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="X"></td></form>';
-                              $_SESSION['player'] = 2; }
-                        else if (isset($_GET['line1col1']) && $_SESSION['player'] == 2 && $i == 1 && $j == 1) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="O"></td></form>';
-                              $_SESSION['player'] = 1; }
-                        if (isset($_GET['line1col2']) && $_SESSION['player'] == 1 && $i == 1 && $j == 2) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="X"></td></form>';
-                              $_SESSION['player'] = 2; }
-                        else if (isset($_GET['line1col2']) && $_SESSION['player'] == 2 && $i == 1 && $j == 2) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="O"></td></form>';
-                              $_SESSION['player'] = 1; }
-
-                        if (isset($_GET['line1col3']) && $_SESSION['player'] == 1 && $i == 1 && $j == 3) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="X"></td></form>';
-                              $_SESSION['player'] = 2; }
-                        else if (isset($_GET['line1col3']) && $_SESSION['player'] == 2 && $i == 1 && $j == 3) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="O"></td></form>';
-                              $_SESSION['player'] = 1; }
-
-
-                        if(isset($_GET['line2col1']) && $_SESSION['player'] == 1 && $i == 2 && $j == 1) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="X"></td></form>';
-                              $_SESSION['player'] = 2; }
-                        else if (isset($_GET['line2col1']) && $_SESSION['player'] == 2 && $i == 2 && $j == 1) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="O"></td></form>';
-                              $_SESSION['player'] = 1; }
-
-                        if (isset($_GET['line2col2']) && $_SESSION['player'] == 1 && $i == 2 && $j == 2) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="X"></td></form>';
-                              $_SESSION['player'] = 2; }
-                        else if (isset($_GET['line2col2']) && $_SESSION['player'] == 2 && $i == 2 && $j == 2) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="O"></td></form>';
-                              $_SESSION['player'] = 1; }
-
-                        if (isset($_GET['line2col3']) && $_SESSION['player'] == 1 && $i == 2 && $j == 3) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="X"></td></form>';
-                              $_SESSION['player'] = 2; }
-                        else if (isset($_GET['line2col3']) && $_SESSION['player'] == 2 && $i == 2 && $j == 3) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="O"></td></form>';
-                              $_SESSION['player'] = 1; }
-
-
-                        if(isset($_GET['line3col1']) && $_SESSION['player'] == 1 && $i == 3 && $j == 1) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="X"></td></form>';
-                              $_SESSION['player'] = 2; }
-                        else if (isset($_GET['line3col1']) && $_SESSION['player'] == 2 && $i == 3 && $j == 1) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="O"></td></form>';
-                              $_SESSION['player'] = 1; }
-
-                        if (isset($_GET['line3col2']) && $_SESSION['player'] == 1 && $i == 3 && $j == 2) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="X"></td></form>';
-                              $_SESSION['player'] = 2; }
-                        else if (isset($_GET['line3col2']) && $_SESSION['player'] == 2 && $i == 3 && $j == 2) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="O"></td></form>';
-                              $_SESSION['player'] = 1; }
-
-                        if (isset($_GET['line3col3']) && $_SESSION['player'] == 1 && $i == 3 && $j == 3) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="X"></td></form>';
-                              $_SESSION['player'] = 2; }
-                        else if (isset($_GET['line3col3']) && $_SESSION['player'] == 2 && $i == 3 && $j == 3) {
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="O"></td></form>';
-                              $_SESSION['player'] = 1; }
-                        if (!isset($_GET["line".$i."col".$j])) 
-                              echo '<form method="GET"><td><input name="line'.$i.'col'.$j.'" type="submit" value="-"></td></form>';
-
+                        echo "<td><form method='GET'><button type='submit' value='l".$i."c".$j."' name='button'>" . $_SESSION['game'][$i][$j] . "</button></form></td>";
                   }
                   echo "</tr>";
             }
-            echo "</tbody></table>";
+            echo "</tbody><table>";
 
 
 
