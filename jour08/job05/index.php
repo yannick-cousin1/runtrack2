@@ -20,8 +20,6 @@
             {
                   for($l=0; $l<3; $l++)
                   {
-                        echo ("l" .$k . "c" .$l . " ");
-
                               if ($_GET['button'] == ("l".$k."c".$l) && $_SESSION['turn'] % 2 == 0)
                               {
                                     $_SESSION['game'][$k][$l] = 'X';
@@ -32,7 +30,6 @@
                                     $_SESSION['game'][$k][$l] = 'O';
                                     $_SESSION['turn'] += 1;
                               }
-
                   }
             }
 
