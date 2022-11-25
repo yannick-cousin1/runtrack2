@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo cp -r ~/Documents/runtrack2/ /var/www/html
+sudo cp -r ~/Documents/runtrack2/ /opt/lampp/htdocs/
 
