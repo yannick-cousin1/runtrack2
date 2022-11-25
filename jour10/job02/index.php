@@ -7,7 +7,7 @@
 <?php
 $mysqli = new mysqli("localhost", "root", "", "jour09");
 
-$result = $mysqli->query("SELECT prenom,nom,naissance,sexe,email FROM etudiants;");
+$result = $mysqli->query("SELECT nom,capacite FROM salles;");
 
 $row = $result -> fetch_array(MYSQLI_ASSOC);
 
